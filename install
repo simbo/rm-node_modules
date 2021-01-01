@@ -7,21 +7,21 @@
   bold=$(tput bold)
   normal=$(tput sgr0)
   binDir=$HOME/bin
-  printf "Installing rm-node_modules to $binDir...\n"
+  printf "\nInstalling rm-node_modules to $binDir...\n"
   mkdir -p $binDir
   target=$binDir/rm-node_modules
   rm -f $binDir/rm-node_modules
-  printf "Downloading...\n"
+  printf "\nDownloading...\n"
   curl https://raw.githubusercontent.com/simbo/rm-node_modules/master/rm-node_modules -o $binDir/rm-node_modules
   chmod +x $binDir/rm-node_modules
-  printf "Linking...\n"
+  printf "\nLinking...\n"
   rm -f $binDir/rmnm
   cd $binDir
   ln -s ./rm-node_modules rmnm
-  printf "Done.\n"
+  printf "\nDone.\n"
   printf "\nIf $binDir is not within your PATH, add this line to your shell profile:\n"
-  printf "  export PATH=\"$binDir:\$PATH\"\n\n"
+  printf "  export PATH=\"$binDir:\$PATH\"\n"
   export PATH="$binDir:$PATH"
-  printf "Run the script using ${white}${bold}rm-node_modules${normal} or ${white}${bold}rmnm${normal}\n"
+  printf "\nRun the script using ${white}${bold}rm-node_modules${normal} or ${white}${bold}rmnm${normal}\n"
 
 } # this ensures the entire script is downloaded #
