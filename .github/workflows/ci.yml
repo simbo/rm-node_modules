@@ -24,7 +24,7 @@ jobs:
 
       - name: Release if
         if: steps.last-version.outputs.version != steps.current-version.outputs.version
-        echo: "gogogo"
+        run: echo "gogogo"
 
       # - name: 📋 Get Commits since last Release
       #   if: steps.last-version.outputs.version != steps.current-version.outputs.version
