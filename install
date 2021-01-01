@@ -3,6 +3,7 @@
 { # this ensures the entire script is downloaded #
 
   set -e
+  TERM=${TERM:-"dumb"}
   white=$(tput setaf 15)
   bold=$(tput bold)
   normal=$(tput sgr0)
