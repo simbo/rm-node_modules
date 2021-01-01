@@ -7,6 +7,7 @@
   green=$(tput setaf 10)
   yellow=$(tput setaf 11)
   white=$(tput setaf 15)
+  gray=$(tput setaf 8)
   bold=$(tput bold)
   normal=$(tput sgr0)
   binDir=$HOME/bin
@@ -15,18 +16,18 @@
   mkdir -p $binDir
   target=$binDir/rm-node_modules
   rm -f $binDir/rm-node_modules
-  printf "Downloading...\n\n"
+  printf "\n${gray}Downloading...${normal}\n"
   curl -s https://raw.githubusercontent.com/simbo/rm-node_modules/$latestVersion/rm-node_modules -o $binDir/rm-node_modules
   chmod +x $binDir/rm-node_modules
-  printf "Linking...\n"
+  printf "${gray}Linking...${normal}\n"
   rm -f $binDir/rmnm
   cd $binDir
   ln -s ./rm-node_modules rmnm
   export PATH="$binDir:$PATH"
-  printf "Done.\n"
+  printf "${gray}Done.${normal}\n"
   printf "\n${green}Successfully installed ${bold}rm-node_modules $(rmnm -v)${normal}${green}.${normal}\n"
   printf "\nIf $binDir is not within your PATH by default, add this line to your shell profile:\n"
-  printf "  ${white}${bold}export PATH=\"\$HOME/bin:\$PATH\"${normal}\n"
+  printf "\n  ${white}${bold}export PATH=\"\$HOME/bin:\$PATH\"${normal}\n"
   printf "\nRun the script using ${yellow}${bold}rm-node_modules${normal} or ${yellow}${bold}rmnm${normal}.\n"
 
 } # this ensures the entire script is downloaded #
