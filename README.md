@@ -64,7 +64,7 @@ If no default directory is configured, the current working directory will be use
 ## Usage
 
 ```sh
-Usage:  rm-node_modules [-yuv] [-d <DIR> | -c <DIR>]
+Usage:  rmnm [-yuv] [-d <DIR> | -c <DIR>]
 
 "Search for node_modules directories within given path and delete them."
 
