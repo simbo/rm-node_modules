@@ -32,12 +32,12 @@ This will install `rm-node_modules` to `$HOME/bin`.
 
 Afterwards, you can run the script using `rm-node_modules` or `rmnm`.
 
-Make sure, it's within your `$PATH`.
-
 ### Installing manually
 
 Download [./rm-node_modules](https://raw.githubusercontent.com/simbo/rm-node_modules/master/rm-node_modules)
 and put it anywhere you want.
+
+Make sure, it's within your `$PATH`.
 
 Make it executable: `chmod +x ./rm-node_modules`
 
@@ -46,7 +46,7 @@ And optionally link it with a short alias: `ln -s ./rm-node_modules rmnm`
 ## Usage
 
 ```sh
-Usage:  rmnm [-yu] [-d <DIR>]
+Usage:  rmnm [-yuv] [-d <DIR>]
 
 Options:
   -d <DIR>  directory to search within (default: current directory)
