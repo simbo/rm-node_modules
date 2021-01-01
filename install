@@ -14,7 +14,7 @@
   mkdir -p $binDir
   target=$binDir/rm-node_modules
   rm -f $binDir/rm-node_modules
-  printf "\nDownloading...\n"
+  printf "\nDownloading...\n\n"
   curl https://raw.githubusercontent.com/simbo/rm-node_modules/master/rm-node_modules -o $binDir/rm-node_modules
   chmod +x $binDir/rm-node_modules
   printf "\nLinking...\n"
@@ -25,7 +25,7 @@
   printf "\nDone.\n"
   printf "\n${green}Successfully installed ${bold}rm-node_modules $(rmnm -v)${normal}${green}.${normal}\n"
   printf "\nIf $binDir is not within your PATH, add this line to your shell profile:\n"
-  printf "  ${white}export PATH=\"$binDir:\$PATH\"${normal}\n"
-  printf "\nRun the script using ${yellow}${bold}rm-node_modules${normal} or ${yellow}${bold}rmnm${normal}\n"
+  printf "  ${white}${bold}export PATH=\"\$HOME/bin:\$PATH\"${normal}\n"
+  printf "\nRun the script using ${yellow}${bold}rm-node_modules${normal} or ${yellow}${bold}rmnm${normal}.\n"
 
 } # this ensures the entire script is downloaded #
