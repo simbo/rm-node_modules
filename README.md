@@ -27,7 +27,7 @@ If you experience any problems, please [create an issue](https://github.com/simb
 
 ## Install and Update
 
-To install and/or update, simply run the following command:
+To install and/or update the latest version, simply run the following command:
 
 ```sh
 curl -so- https://raw.githubusercontent.com/simbo/rm-node_modules/master/install | bash
@@ -48,15 +48,32 @@ Make it executable: `chmod +x ./rm-node_modules`
 
 And optionally link it with a short alias: `ln -s ./rm-node_modules rmnm`
 
+## Configure
+
+You can optionally configure a default directory to search for node_modules:
+
+```sh
+rmnm -c <DIR>
+
+# for example:
+rmnm -c ~/projects
+```
+
+If no default directory is configured, the current working directory will be used.
+
 ## Usage
 
 ```sh
-Usage:  rmnm [-yuv] [-d <DIR>]
+Usage:  rm-node_modules [-yuv] [-d <DIR> | -c <DIR>]
+
+"Search for node_modules directories within given path and delete them."
 
 Options:
-  -d <DIR>  directory to search within (default: current directory)
+  -d <DIR>  directory to search within
+            (default: current directory or configured default directory)
   -y        delete without confirmation
   -u        determine disk usage
+  -c <DIR>  configure default directory to search within
   -v        display version info only
 ```
 
