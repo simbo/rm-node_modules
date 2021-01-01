@@ -30,7 +30,7 @@ If you experience any problems, please [create an issue](https://github.com/simb
 To install and/or update, simply run the following command:
 
 ```sh
-curl -o- https://raw.githubusercontent.com/simbo/rm-node_modules/master/install | bash
+curl -so- https://raw.githubusercontent.com/simbo/rm-node_modules/master/install | bash
 ```
 
 This will install `rm-node_modules` to `$HOME/bin`.

@@ -15,15 +15,15 @@
   mkdir -p $binDir
   target=$binDir/rm-node_modules
   rm -f $binDir/rm-node_modules
-  printf "\nDownloading...\n\n"
-  curl https://raw.githubusercontent.com/simbo/rm-node_modules/$latestVersion/rm-node_modules -o $binDir/rm-node_modules
+  printf "Downloading...\n\n"
+  curl -s https://raw.githubusercontent.com/simbo/rm-node_modules/$latestVersion/rm-node_modules -o $binDir/rm-node_modules
   chmod +x $binDir/rm-node_modules
-  printf "\nLinking...\n"
+  printf "Linking...\n"
   rm -f $binDir/rmnm
   cd $binDir
   ln -s ./rm-node_modules rmnm
   export PATH="$binDir:$PATH"
-  printf "\nDone.\n"
+  printf "Done.\n"
   printf "\n${green}Successfully installed ${bold}rm-node_modules $(rmnm -v)${normal}${green}.${normal}\n"
   printf "\nIf $binDir is not within your PATH by default, add this line to your shell profile:\n"
   printf "  ${white}${bold}export PATH=\"\$HOME/bin:\$PATH\"${normal}\n"
