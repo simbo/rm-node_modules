@@ -4,6 +4,8 @@
 
   set -e
   TERM=${TERM:-"dumb"}
+  green=$(tput setaf 10)
+  yellow=$(tput setaf 10)
   white=$(tput setaf 15)
   bold=$(tput bold)
   normal=$(tput sgr0)
@@ -19,10 +21,11 @@
   rm -f $binDir/rmnm
   cd $binDir
   ln -s ./rm-node_modules rmnm
-  printf "\nDone.\n"
-  printf "\nIf $binDir is not within your PATH, add this line to your shell profile:\n"
-  printf "  export PATH=\"$binDir:\$PATH\"\n"
   export PATH="$binDir:$PATH"
-  printf "\nRun the script using ${white}${bold}rm-node_modules${normal} or ${white}${bold}rmnm${normal}\n"
+  printf "\nDone.\n"
+  printf "\n${green}Successfully installed ${bold}rm-node_modules $(rmnm -v)${normal}${green}.${normal}\n"
+  printf "\nIf $binDir is not within your PATH, add this line to your shell profile:\n"
+  printf "  ${white}export PATH=\"$binDir:\$PATH\"${normal}\n"
+  printf "\nRun the script using ${yellow}${bold}rm-node_modules${normal} or ${yellow}${bold}rmnm${normal}\n"
 
 } # this ensures the entire script is downloaded #
