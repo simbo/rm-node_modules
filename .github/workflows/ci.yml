@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ci]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: 🛎 Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: 👀 Get last Version
+        run: echo "::set-output name=version::$(git describe --tags --abbrev=0 @^ 2> /dev/null)"
+        id: last-version
+
+      - name: 👀 Get current Version
+        run: echo "::set-output name=version::$(bash ./rm-node_modules -v)"
+        id: current-version
+
+      - name: Release if
+        if: steps.last-version.outputs.version != steps.current-version.outputs.version
+        echo: "gogogo"
+
+      # - name: 📋 Get Commits since last Release
+      #   if: steps.last-version.outputs.version != steps.current-version.outputs.version
+      #   uses: simbo/changes-since-last-release-action@v1
+      #   id: changes
+
+      # - name: 🎁 Create tag and GitHub Release
+      #   if: steps.last-version.outputs.version != steps.current-version.outputs.version
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: ${{ steps.version.outputs.version }}
+      #     release_name: Release ${{ steps.version.outputs.version }}
+      #     body: |
+      #       Changes since ${{ steps.changes.outputs.last-tag }}:
+      #       ${{ steps.changes.outputs.log }}
