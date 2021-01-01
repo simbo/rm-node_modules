@@ -15,7 +15,8 @@ determining the disk usage of respective directories.
 
 ## Requirements
 
-This script should work with every linux or mac platform.
+This script should work with every linux or mac platform where bash is available.  
+(bash doesn't need to be your default shell.)
 
 If you experience any problems, please [create an issue](https://github.com/simbo/rm-node_modules/issues).
 
@@ -30,6 +31,8 @@ curl -o- https://raw.githubusercontent.com/simbo/rm-node_modules/master/install 
 This will install `rm-node_modules` to `$HOME/bin`.
 
 Afterwards, you can run the script using `rm-node_modules` or `rmnm`.
+
+Make sure, it's within your `$PATH`.
 
 ### Installing manually
 
