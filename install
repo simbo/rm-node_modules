@@ -10,12 +10,13 @@
   bold=$(tput bold)
   normal=$(tput sgr0)
   binDir=$HOME/bin
-  printf "\nInstalling rm-node_modules to $binDir...\n"
+  latestVersion="$(curl -s https://api.github.com/repos/simbo/rm-node_modules/releases/latest | grep "tag_name" | cut -d '"' -f 4)"
+  printf "\nInstalling rm-node_modules $latestVersion to $binDir...\n"
   mkdir -p $binDir
   target=$binDir/rm-node_modules
   rm -f $binDir/rm-node_modules
   printf "\nDownloading...\n\n"
-  curl https://raw.githubusercontent.com/simbo/rm-node_modules/master/rm-node_modules -o $binDir/rm-node_modules
+  curl https://raw.githubusercontent.com/simbo/rm-node_modules/$latestVersion/rm-node_modules -o $binDir/rm-node_modules
   chmod +x $binDir/rm-node_modules
   printf "\nLinking...\n"
   rm -f $binDir/rmnm
@@ -24,7 +25,7 @@
   export PATH="$binDir:$PATH"
   printf "\nDone.\n"
   printf "\n${green}Successfully installed ${bold}rm-node_modules $(rmnm -v)${normal}${green}.${normal}\n"
-  printf "\nIf $binDir is not within your PATH, add this line to your shell profile:\n"
+  printf "\nIf $binDir is not within your PATH by default, add this line to your shell profile:\n"
   printf "  ${white}${bold}export PATH=\"\$HOME/bin:\$PATH\"${normal}\n"
   printf "\nRun the script using ${yellow}${bold}rm-node_modules${normal} or ${yellow}${bold}rmnm${normal}.\n"
 
