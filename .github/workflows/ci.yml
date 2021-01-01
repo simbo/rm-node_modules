@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ci]
+    branches: [master]
 
 jobs:
   build:
@@ -22,23 +22,19 @@ jobs:
         run: echo "::set-output name=version::$(bash ./rm-node_modules -v)"
         id: current-version
 
-      - name: Release if
+      - name: 📋 Get Commits since last Release
         if: steps.last-version.outputs.version != steps.current-version.outputs.version
-        run: echo "gogogo"
+        uses: simbo/changes-since-last-release-action@v1
+        id: changes
 
-      # - name: 📋 Get Commits since last Release
-      #   if: steps.last-version.outputs.version != steps.current-version.outputs.version
-      #   uses: simbo/changes-since-last-release-action@v1
-      #   id: changes
-
-      # - name: 🎁 Create tag and GitHub Release
-      #   if: steps.last-version.outputs.version != steps.current-version.outputs.version
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: ${{ steps.version.outputs.version }}
-      #     release_name: Release ${{ steps.version.outputs.version }}
-      #     body: |
-      #       Changes since ${{ steps.changes.outputs.last-tag }}:
-      #       ${{ steps.changes.outputs.log }}
+      - name: 🎁 Create tag and GitHub Release
+        if: steps.last-version.outputs.version != steps.current-version.outputs.version
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.current-version.outputs.version }}
+          release_name: Release ${{ steps.current-version.outputs.version }}
+          body: |
+            Changes since ${{ steps.changes.outputs.last-tag }}:
+            ${{ steps.changes.outputs.log }}
