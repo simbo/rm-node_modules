@@ -49,6 +49,7 @@ Options:
   -d <DIR>  directory to search within (default: current directory)
   -y        delete without confirmation
   -u        determine disk usage
+  -v        display version
 ```
 
 ## Screenshots
