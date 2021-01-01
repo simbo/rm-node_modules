@@ -5,7 +5,7 @@
   set -e
   TERM=${TERM:-"dumb"}
   green=$(tput setaf 10)
-  yellow=$(tput setaf 10)
+  yellow=$(tput setaf 11)
   white=$(tput setaf 15)
   bold=$(tput bold)
   normal=$(tput sgr0)
