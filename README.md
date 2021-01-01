@@ -4,6 +4,11 @@ rm-node_modules
 > A shell script to find and delete all node_modules directories recursively
 > within a given path.
 
+[![GitHub Release](https://img.shields.io/github/v/release/simbo/rm-node_modules)](https://github.com/simbo/rm-node_modules/releases)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/simbo/rm-node_modules/CI/master)](https://github.com/simbo/rm-node_modules/actions?query=workflow%3ACI)
+![Pure Bash Script](https://img.shields.io/badge/pure-bash-green)
+
+
 ---
 
 ## About
