@@ -9,6 +9,7 @@
   TERM=${TERM:-"dumb"}
   green=$(tput setaf 10)
   yellow=$(tput setaf 11)
+  blue=$(tput setaf 12)
   white=$(tput setaf 15)
   gray=$(tput setaf 8)
   bold=$(tput bold)
@@ -18,10 +19,10 @@
   latestVersion="$(curl -s https://api.github.com/repos/simbo/rm-node_modules/releases/latest | grep "tag_name" | cut -d '"' -f 4)"
 
   # inform about installation
-  printf "\nInstalling ${white}${bold}rm-node_modules $latestVersion${normal} to ${white}${bold}$HOME/bin${normal}...\n"
+  printf "\nInstalling ${yellow}rm-node_modules $latestVersion${normal} to ${blue}$HOME/bin${normal}...\n"
 
   # ask for confirmation
-  printf "Press [ENTER] to continue.\n"
+  printf "Press [ENTER] to continue or anything else to cancel.\n"
   IFS= read -s -n 1 key
 
   # exit if not confirmed
