@@ -70,6 +70,6 @@
   printf "\nRun ${yellow}${bold}rmnm -h${normal} to display usage information.\n"
 
   # inform about configuration
-  printf "\nYou may want to configure your default base directory using ${yellow}${bold}rmnm -c <DIR>${normal}."
+  printf "\nYou may want to configure your default base directory using ${yellow}${bold}rmnm -c <DIR>${normal}.\n"
 
 } # this ensures the entire script is downloaded
