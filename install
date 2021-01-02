@@ -18,11 +18,13 @@
   latestVersion="$(curl -s https://api.github.com/repos/simbo/rm-node_modules/releases/latest | grep "tag_name" | cut -d '"' -f 4)"
 
   # inform about installation
-  printf "\nInstalling ${bold}rm-node_modules $latestVersion${normal} to ${bold}$HOME/bin${normal}...\n"
+  printf "\nInstalling ${white}${bold}rm-node_modules $latestVersion${normal} to ${white}${bold}$HOME/bin${normal}...\n"
 
   # ask for confirmation
   printf "Press [ENTER] to continue.\n"
   IFS= read -s -n 1 key
+
+  # exit if not confirmed
   if [[ $key != "" ]]; then
     printf "\n${gray}Aborted.${normal}\n"
     exit 0
