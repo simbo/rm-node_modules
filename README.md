@@ -18,7 +18,7 @@ rm-node_modules
   - [Installing manually](#installing-manually)
 - [Usage](#usage)
   - [Examples](#examples)
-- [Configure](#configure)
+  - [Configure default Behavior](#configure-default-behavior)
 - [FAQ](#faq)
   - [Why not use a Oneliner?](#why-not-use-a-oneliner)
   - [Could you add support for Windows Command Prompt?](#could-you-add-support-for-windows-command-prompt)
@@ -81,7 +81,7 @@ Options:
   -d <DIR>  directory to search within
             (default: current directory or configured default directory)
   -y        delete without confirmation
-  -u        determine disk usage
+  -u        determine disk usage; enable by default when using together with -c
   -c <DIR>  configure default directory to search within
   -v        display version info only
 ```
@@ -107,15 +107,20 @@ rmnm -u -d ~/projects
 rmnm -uy -d ~/projects
 ```
 
-## Configure
+### Configure default Behavior
 
-You can optionally configure a default directory to search for node_modules:
+You can optionally configure default behavior, which will be saved to
+`$HOME/.rm-node_modules-defaults`.
 
 ```sh
-rmnm -c <DIR>
+# usage:
+rmnm -c <DIR> [-u]
 
-# for example:
+# set a default base directory and disable determining disk usage by default:
 rmnm -c ~/projects
+
+# set a default base directory and enable determining disk usage by default:
+rmnm -c ~/projects -u
 ```
 
 If no default directory is configured and no directory is given via the `-d`
