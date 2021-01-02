@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-{ # this ensures the entire script is downloaded #
+{ # this ensures the entire script is downloaded
 
+  # exit if anything fails
   set -e
+
+  # setup some formatting vars
   TERM=${TERM:-"dumb"}
   green=$(tput setaf 10)
   yellow=$(tput setaf 11)
@@ -10,24 +13,56 @@
   gray=$(tput setaf 8)
   bold=$(tput bold)
   normal=$(tput sgr0)
-  binDir=$HOME/bin
+
+  # retrieve the latest version number
   latestVersion="$(curl -s https://api.github.com/repos/simbo/rm-node_modules/releases/latest | grep "tag_name" | cut -d '"' -f 4)"
-  printf "\nInstalling rm-node_modules $latestVersion to $binDir...\n"
-  mkdir -p $binDir
-  target=$binDir/rm-node_modules
-  rm -f $binDir/rm-node_modules
+
+  # inform about installation
+  printf "\nInstalling rm-node_modules $latestVersion to $(pwd)...\n"
+
+  # ensure ~/bin directory exists
+  mkdir -p $HOME/bin
+
+  # change to ~/bin directory
+  cd $HOME/bin
+
+  # remove existing version and symlink
+  rm -f ./rm-node_modules
+  rm -f ./rmnm
+
+  # inform about downloading
   printf "\n${gray}Downloading...${normal}\n"
-  curl -s https://raw.githubusercontent.com/simbo/rm-node_modules/$latestVersion/rm-node_modules -o $binDir/rm-node_modules
-  chmod +x $binDir/rm-node_modules
+
+  # download latest version
+  curl -s https://raw.githubusercontent.com/simbo/rm-node_modules/$latestVersion/rm-node_modules -o ./rm-node_modules
+
+  # make script executable
+  chmod +x ./rm-node_modules
+
+  # inform about linking
   printf "${gray}Linking...${normal}\n"
-  rm -f $binDir/rmnm
-  cd $binDir
+
+  # create symlink
   ln -s ./rm-node_modules rmnm
-  export PATH="$binDir:$PATH"
+
+  # ensure ~/bin is within PATH
+  export PATH="$HOME/bin:$PATH"
+
+  # inform about status
   printf "${gray}Done.${normal}\n"
-  printf "\n${green}Successfully installed ${bold}rm-node_modules $(rmnm -v)${normal}${green}.${normal}\n"
-  printf "\nIf $binDir is not within your PATH by default, add this line to your shell profile:\n"
+  printf "\n${green}Successfully installed ${bold}rm-node_modules $latestVersion${normal}${green}.${normal}\n"
+
+  # inform about PATH
+  printf "\nIf $HOME/bin is not within your PATH by default, add this line to your shell profile:\n"
   printf "\n  ${white}${bold}export PATH=\"\$HOME/bin:\$PATH\"${normal}\n"
+
+  # inform about execution
   printf "\nRun the script using ${yellow}${bold}rm-node_modules${normal} or ${yellow}${bold}rmnm${normal}.\n"
 
-} # this ensures the entire script is downloaded #
+  # inform about usage
+  printf "\nRun ${yellow}${bold}rmnm -h${normal} to display usage information.\n"
+
+  # inform about configuration
+  printf "\nYou may want to configure your default base directory using ${yellow}${bold}rmnm -c <DIR>${normal}."
+
+} # this ensures the entire script is downloaded
