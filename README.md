@@ -17,6 +17,7 @@ rm-node_modules
 - [Install and Update](#install-and-update)
   - [Installing manually](#installing-manually)
 - [Usage](#usage)
+  - [Examples](#examples)
 - [Configure](#configure)
 - [FAQ](#faq)
   - [Why not use a Oneliner?](#why-not-use-a-oneliner)
@@ -83,6 +84,27 @@ Options:
   -u        determine disk usage
   -c <DIR>  configure default directory to search within
   -v        display version info only
+```
+
+### Examples
+
+```sh
+# run within configured default directory or current working directory
+rmnm
+# run within current working directory
+rmnm -d .
+# run with displaying disk usage
+rmnm -u
+# run with auto-confirming deletion
+rmnm -y
+# run with auto-confirming deletion and displaying disk usage
+rmnm -uy
+# run within ~/projects
+rmnm -d ~/projects
+# run within ~/projects and displaying disk usage
+rmnm -u -d ~/projects
+# run within ~/projects, display disk usage and auto-confirm deletion
+rmnm -uy -d ~/projects
 ```
 
 ## Configure
