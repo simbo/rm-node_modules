@@ -118,7 +118,8 @@ rmnm -c <DIR>
 rmnm -c ~/projects
 ```
 
-If no default directory is configured, the current working directory will be used.
+If no default directory is configured and no directory is given via the `-d`
+option, the current working directory will be used.
 
 ## FAQ
 
