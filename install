@@ -22,7 +22,7 @@
   printf "\nInstalling ${yellow}rm-node_modules $latestVersion${normal} to ${blue}$HOME/bin${normal}...\n"
 
   # ask for confirmation
-  printf "Press [ENTER] to continue or anything else to cancel.\n"
+  printf "\nPress ${white}${bold}[ENTER] to continue${normal} or anything else to cancel.\n"
   IFS= read -s -n 1 key
 
   # exit if not confirmed
