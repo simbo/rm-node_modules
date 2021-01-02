@@ -20,6 +20,13 @@
   # inform about installation
   printf "\nInstalling ${bold}rm-node_modules $latestVersion${normal} to ${bold}$HOME/bin${normal}...\n"
 
+  # ask for confirmation
+  printf "Press [ENTER] to continue.\n"
+  IFS= read -s -n 1 key
+  if [[ $key != "" ]]; then
+    printf "\n${gray}Aborted.${normal}\n"
+    exit 0
+
   # ensure ~/bin directory exists
   mkdir -p $HOME/bin
 
