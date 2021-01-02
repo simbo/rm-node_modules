@@ -18,7 +18,7 @@
   latestVersion="$(curl -s https://api.github.com/repos/simbo/rm-node_modules/releases/latest | grep "tag_name" | cut -d '"' -f 4)"
 
   # inform about installation
-  printf "\nInstalling rm-node_modules $latestVersion to $(pwd)...\n"
+  printf "\nInstalling ${bold}rm-node_modules $latestVersion${normal} to ${bold}$HOME/bin${normal}...\n"
 
   # ensure ~/bin directory exists
   mkdir -p $HOME/bin
