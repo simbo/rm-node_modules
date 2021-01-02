@@ -6,14 +6,14 @@
   set -e
 
   # setup some formatting vars
-  TERM=${TERM:-"dumb"}
-  green=$(tput setaf 10)
-  yellow=$(tput setaf 11)
-  blue=$(tput setaf 12)
-  white=$(tput setaf 15)
-  gray=$(tput setaf 8)
-  bold=$(tput bold)
-  normal=$(tput sgr0)
+  term=${TERM:-"dumb"}
+  green=$(tput -T$term setaf 10)
+  yellow=$(tput -T$term setaf 11)
+  blue=$(tput -T$term setaf 12)
+  white=$(tput -T$term setaf 15)
+  gray=$(tput -T$term setaf 8)
+  bold=$(tput -T$term bold)
+  normal=$(tput -T$term sgr0)
 
   # retrieve the latest version number
   latestVersion="$(curl -s https://api.github.com/repos/simbo/rm-node_modules/releases/latest | grep "tag_name" | cut -d '"' -f 4)"
