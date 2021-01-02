@@ -50,7 +50,7 @@ If you experience any problems, please [create an issue](https://github.com/simb
 To install and/or update the latest version, simply run the following command:
 
 ```sh
-curl -so- https://raw.githubusercontent.com/simbo/rm-node_modules/master/install | bash
+bash <(curl -so- https://raw.githubusercontent.com/simbo/rm-node_modules/master/install)
 ```
 
 This will install the latest release of `rm-node_modules` to `$HOME/bin`.
