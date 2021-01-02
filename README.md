@@ -41,7 +41,8 @@ convenient way, while optionally determining the potentially freed disk space.
 ## Requirements
 
 *rm-node_modules* should work with every **Linux** or **Mac** platform where
-*bash* is available. (Although, bash doesn't have to be your default shell.)
+*bash* is available.  
+(Although, bash doesn't have to be your default shell.)
 
 If you experience any problems, please [create an issue](https://github.com/simbo/rm-node_modules/issues).
 
