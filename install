@@ -26,6 +26,7 @@
   if [[ $key != "" ]]; then
     printf "\n${gray}Aborted.${normal}\n"
     exit 0
+  fi
 
   # ensure ~/bin directory exists
   mkdir -p $HOME/bin
